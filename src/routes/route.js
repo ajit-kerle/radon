@@ -8,6 +8,8 @@ const validFormatter = require("../validator/formatter");
 const ldash = require("lodash");
 
 const router = express.Router();
+//------------------------------------------------------------
+// Players assignement solution here
 let players = [
   {
     name: "manish",
@@ -33,18 +35,28 @@ let players = [
 ];
 
 router.post("/players", function (req, res) {
+    let PlayersName = req.body.name
+    let isNameRepeated = false
+
+
   for(let i=0;i<players.length;i++){
-  if(req.body.name===players[i].name){
-      res.send("player exists")
-      console.log("player exists")
+  if(players[i].name==PlayersName){
+      isNameRepeated=true
+      break
   }
   }
-  players.push(req.body)
-  console.log(players)
-  res.send("player added successfully")
-  // res.send(  { data: players , status: true }  )
+  if(isNameRepeated){
+     res.send("player exists already")
+  }else{
+    console.log(req.body)
+    players.push(req.body)
+    res.send(players)
+  }
+  
 });
 
+
+//------------------------------------------------------------------------
 router.get("/test-me", function (req, res) {
   // externalModule.welcome();
   // utilHelperModule.printDate();
