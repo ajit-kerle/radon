@@ -8,6 +8,42 @@ const validFormatter = require("../validator/formatter");
 const ldash = require("lodash");
 
 const router = express.Router();
+let players = [
+  {
+    name: "manish",
+    dob: "1/1/1995",
+    gender: "male",
+    city: "jalandhar",
+    sports: ["swimming"],
+  },
+  {
+    name: "gopal",
+    dob: "1/09/1995",
+    gender: "male",
+    city: "delhi",
+    sports: ["soccer"],
+  },
+  {
+    name: "lokesh",
+    dob: "1/1/1990",
+    gender: "male",
+    city: "mumbai",
+    sports: ["soccer"],
+  },
+];
+
+router.post("/players", function (req, res) {
+  for(let i=0;i<players.length;i++){
+  if(req.body.name===players[i].name){
+      res.send("player exists")
+      console.log("player exists")
+  }
+  }
+  players.push(req.body)
+  console.log(players)
+  res.send("player added successfully")
+  // res.send(  { data: players , status: true }  )
+});
 
 router.get("/test-me", function (req, res) {
   // externalModule.welcome();
@@ -54,7 +90,7 @@ router.get("/movies", function (req, res) {
     "Lord of the rings",
     "Batman begins",
   ];
-  
+
   res.send(movies);
 });
 
@@ -66,8 +102,8 @@ router.get("/movies/:index", function (req, res) {
     "Lord of the rings",
     "Batman begins",
   ];
-  
-  if (req.params.index>= movie.length) {
+
+  if (req.params.index >= movie.length) {
     console.log("use a valid index");
     res.send("use a valid index");
   }
@@ -77,8 +113,8 @@ router.get("/movies/:index", function (req, res) {
 
 // films accessing solution
 router.get("/films", function (req, res) {
-   // fims accessing using /films
-    const films = [
+  // fims accessing using /films
+  const films = [
     {
       id: 1,
       name: "The Shining",
@@ -101,7 +137,7 @@ router.get("/films", function (req, res) {
 });
 
 router.get("/films/:filmid", function (req, res) {
-  // films accessing using filmid 
+  // films accessing using filmid
   const films = [
     {
       id: 1,
@@ -120,11 +156,11 @@ router.get("/films/:filmid", function (req, res) {
       name: "Finding Nemo",
     },
   ];
-  if(req.params.filmid >=5){
-         res.send("No movie exists with this id")
-   }
-  const i=req.params.filmid-1
-   
+  if (req.params.filmid >= 5) {
+    res.send("No movie exists with this id");
+  }
+  const i = req.params.filmid - 1;
+
   res.send(films[i]);
 });
 
