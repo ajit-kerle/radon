@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
 
+// ----------assihment-----------------
+//------books schemas collect is here
+const bookSchema=new mongoose.Schema({
+    bookName:{ type:String, required:true },
+    authorName:String,
+    category:{
+        type:String,
+        enum:["thirller","advanterous","horror","comic"]
+    },
+    year:Number
+},{ timestamps: true })
+
+//----------------------------------------
 const userSchema = new mongoose.Schema( {
     firstName: String,
     lastName: String,
@@ -23,7 +36,10 @@ const userSchema = new mongoose.Schema( {
     // cars: [ String  ]
 }, { timestamps: true });
 
+
+// ---exported schemas-----------------
 module.exports = mongoose.model('User', userSchema) //users
+module.exports = mongoose.model('Books', bookSchema) //users
 
 
 
