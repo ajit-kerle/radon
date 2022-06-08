@@ -57,6 +57,41 @@ const findBookBetween = async function (req, res) {
   res.send({ author: authoname });
 };
 
+
+
+//------------------------------------------
+// optinal assignment questions
+// first solution
+const getBookById= async function(req,res){
+  let id=req.params["id"]
+   let getBookData=await BookModel.find({author_id:id},{name:1,_id:0})
+   res.send({Book:getBookData})
+}
+//second solution
+const ageOfAuthor=async function(req,res){
+  let sepAge=await AuthorModel.find({age:{$gte:50}},{author_name:1,age:1,_id:0})
+ 
+//   const temp=[]
+//   for(let i=0;i<sepAge.length;i++){
+//     let id=sepAge[i].author_id
+//     let sepBook=await sepAge.find({author_id:id},{author_name:1,age:1})
+//     temp.push(sepBook)
+// }
+//  const newar=temp
+//   console.log(sepAge)
+  res.send(sepAge)
+}
+
+
+
+
+module.exports.getBookById=getBookById
+module.exports.ageOfAuthor=ageOfAuthor
+
+
+
+
+
 module.exports.creatBook = creatBook;
 module.exports.creatAuthor = creatAuthor;
 module.exports.authorBookList = authorBookList;

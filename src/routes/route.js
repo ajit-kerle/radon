@@ -11,4 +11,9 @@ router.post("/:BookName", AuthorController.BookName);
 
 router.get("/findBookBetween", AuthorController.findBookBetween);
 
+//----------------------------------------------------
+// pratice api
+ router.get('/books/:id',AuthorController.getBookById)
+ router.get('/AgeAuthor',AuthorController.ageOfAuthor)
+
 module.exports = router;
