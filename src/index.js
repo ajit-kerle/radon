@@ -16,14 +16,18 @@ mongoose.connect("mongodb+srv://ajitkerle:2R693j4kFokYqNZJ@cluster0.djs4ptj.mong
 .catch ( err => console.log(err) )
 
 app.use('/', router);
-app.use('/', router);
+// app.use('/',
+//     function(req,res,next){
+//         console.log('this is global variable')
+//     }
+// );
 
-router.route('/')
-      .post(router)
-      .get(router)
-      .put(router);
+// router.route('/')
+//       .post(router)
+//       .get(router)
+//       .put(router);
 
-expressListRoutes(router);
+// expressListRoutes(router);
 
 
 

@@ -19,7 +19,6 @@ const createBook= async function (req, res) {
    
 const getFetchAll=async function(req,res){
     let fetchAll=await bookModel.find().populate('author').populate('publisher')
-    console.log(fetchAll[0])
     res.send(fetchAll)
 }
 
