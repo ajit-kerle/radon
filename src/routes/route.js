@@ -6,6 +6,8 @@ const authorController= require("../controllers/authorController")
 const bookController= require("../controllers/bookController")
 const publisherController=require("../controllers/publisherController")
 
+
+// ----------middle ware storing timestap and ip address and api path
 router.post('/createAuthor',middlewareController.mid1,authorController.createAuthor)
 router.post('/createPublisher',middlewareController.mid1,publisherController.createPublisher)
 router.post('/createBook',middlewareController.mid1,bookController.createBook)
