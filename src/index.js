@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const route = require('./routes/route.js');
+const router = require('./routes/route.js');
 const { default: mongoose } = require('mongoose');
 const app = express();
+const expressListRoutes = require('express-list-routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,7 +15,20 @@ mongoose.connect("mongodb+srv://ajitkerle:2R693j4kFokYqNZJ@cluster0.djs4ptj.mong
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
 
-app.use('/', route);
+app.use('/', router);
+app.use('/', router);
+
+router.route('/')
+      .post(router)
+      .get(router)
+      .put(router);
+
+expressListRoutes(router);
+
+
+
+
+
 
 
 app.listen(process.env.PORT || 3000, function () {
