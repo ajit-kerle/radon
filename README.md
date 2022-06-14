@@ -41,4 +41,4 @@ If present, check that the token is valid.
 - Add this middleware at route level in the routes where applicable.
 
 
-
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmE4YjUwNDM5ZTgxNzM3OTk0NWI2ZTQiLCJiYXRjaCI6InRob3JpdW0iLCJvcmdhbmlzYXRpb24iOiJGdW5jdGlvblVwIiwiaWF0IjoxNjU1MjI2MzQyfQ.22vWxZ9pKdHm3XAmp_OUJqKDT3DYeggGq1adqHu5qts
