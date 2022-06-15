@@ -42,3 +42,4 @@ If present, check that the token is valid.
 
 ``` 
 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmE5Y2U3NGE5NzlkODdmZjQ4YzdlODMiLCJiYXRjaCI6InJhZG9uIiwib3JnYW5pc2F0aW9uIjoiRlVuY3Rpb251cCIsImlhdCI6MTY1NTMwOTg5NH0.SwEkXsauDsclyzen_TRdJD7EkC88UzW50JWK-jubiWI
